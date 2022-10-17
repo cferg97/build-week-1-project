@@ -81,6 +81,7 @@ button {
   font-weight: bold;
   outline: 0;
   border: none;
+  cursor: pointer;
 }
 #btn-container {
   position: relative;
