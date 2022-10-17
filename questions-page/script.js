@@ -1,21 +1,3 @@
-const questionElement = document.getElementById("question")
-const answerButtonsElement = document.getElementById("answer-container")
-const timerContainerElement = document.getElementById("timer")
-const timerText = document.getElementById("timer-text")
-const timerCircle = document.getElementById("timer-circle")
-
-
-let shuffledQuestions, currentQuestionIndex
-
-document.addEventListener('visibilitychange', function (event) {
-    if (document.hidden) {
-        console.log('not visible');
-    } else {
-        console.log('is visible');
-    }
-})
-
-
 
 
 const questions = [ //array of questions and answers
