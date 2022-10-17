@@ -1,5 +1,4 @@
 body {
-  
   justify-content: center;
   min-height: 100vh;
   background-image: url("/welcome page/assets/bg.jpg");
@@ -24,7 +23,7 @@ h1 {
   color: white;
   font-size: 3rem;
   text-align: center;
- margin-bottom: 0;;
+  margin-bottom: 0;
   font-size: bold;
 }
 
@@ -32,7 +31,6 @@ p {
   color: white;
   text-align: center;
   font-size: 1.5rem;
-  
 }
 
 #svg-holder {
@@ -49,54 +47,54 @@ p {
   justify-content: center;
 }
 
-#text-input{
-    width: 500px;
-    color: white;
-    background: transparent;
-    border: none;
-    font-size: 1.2em;
-    border-width:0px;
-border:none;
-
+#text-input {
+  width: 500px;
+  color: white;
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  border-width: 0px;
+  border: none;
 }
 
-#input-div{
-    text-align: center;
-    margin-top: 40px;
+#input-div {
+  text-align: center;
+  margin-top: 40px;
 }
 
-input:focus, textarea:focus, select:focus{
-    outline: none;
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
 }
 
-hr{
-    width:600px ;
-    background-color: pink;
-    border:0;
-    border-top: 2px solid rgba(176, 18, 84, 0.429);
-    border-top: 1px sol;
+hr {
+  width: 600px;
+  background-color: pink;
+  border: 0;
+  border-top: 2px solid rgba(176, 18, 84, 0.429);
+  border-top: 1px sol;
 }
 
-#hr-div{
-    width: 400px;
+#hr-div {
+  width: 400px;
 }
-button{
-background-color: #00ffff;
-height: 50px;
-width: 190px;
+button {
+  background-color: #00ffff;
+  height: 50px;
+  width: 190px;
 
-margin-top: 80px;
-color: black;
-font-family: "Outfit", sans-serif;
-font-size: 20px;
-box-shadow: 5px 5px 50px #00ffffc5;
-font-weight: bold;
-outline: 0;
-border: none;
-cursor: pointer;
-}
-
-#btn-holder{
-    text-align: center;
+  margin-top: 80px;
+  color: black;
+  font-family: "Outfit", sans-serif;
+  font-size: 20px;
+  box-shadow: 5px 5px 50px #00ffffc5;
+  font-weight: bold;
+  outline: 0;
+  border: none;
+  cursor: pointer;
 }
 
+#btn-holder {
+  text-align: center;
+}
