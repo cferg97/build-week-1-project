@@ -44,19 +44,23 @@ body {
 }
 
 #correct {
-  left: 140px;
+  left: 80px;
 }
 
 #wrong {
-  right: 140px;
+  right: 80px;
 }
 
 #percentage_circle {
-  width: 400px;
+  width: 250px;
   aspect-ratio: 1/1;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  top: 40px;
+  border-radius: 50%;
+  border: 40px solid #01f3f5;
+  line-height: 65px;
 }
 
 .button {
@@ -85,4 +89,41 @@ body {
   -webkit-box-shadow: 0px 0px 14px 3px rgba(207, 255, 253, 1);
   -moz-box-shadow: 0px 0px 14px 3px rgba(207, 255, 253, 1);
   box-shadow: 0px 0px 14px 3px rgba(207, 255, 253, 1);
+}
+
+#percentage_circle > span {
+  position: absolute;
+  line-height: 65px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 90px;
+  color: white;
+  text-align: center;
+}
+
+#true_question {
+  top: 181px;
+  left: 84px;
+  font-weight: bold;
+}
+
+#false_question {
+  top: 181px;
+  right: 84px;
+  font-weight: bold;
+}
+
+#quantity_true {
+  top: 234px;
+  left: 84px;
+  font-size: 24px;
+  font-weight: 100;
+}
+
+#quantity_false {
+  top: 234px;
+  right: 84px;
+  font-size: 24px;
+  font-weight: 100;
 }
