@@ -48,8 +48,13 @@ p {
   color: black;
 }
 
-  path {
+  /* path {
   fill: #0B113B;
+} */
+
+.stars{
+  
+   style: fill:#00FFFF";
 }
 
 #text-input {
