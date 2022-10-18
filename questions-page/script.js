@@ -1,9 +1,17 @@
 const questionContainer = document.getElementById("question")
 const answerButtonsElement = document.getElementById("answer-container")
 const questionCounterElement = document.getElementById("q-num")
+const nextBtn = document.getElementById("next-btn")
 let shuffledQuestions, currentQuestionIndex
 let correctAnswers = []
 let wrongAnswers = []
+
+
+nextBtn.addEventListener("click", () => {
+  currentQuestionIndex++
+  setNextQ()
+  startTimer()
+})
 
 function start(){
   questionCounterElement.textContent = 0
@@ -14,13 +22,13 @@ function start(){
 
 function setNextQ(){
   resetState()
-  startTimer()
   showQuestion(shuffledQuestions[currentQuestionIndex])
   const counter = parseInt(questionCounterElement.textContent, 0)
   questionCounterElement.textContent = counter + 1
 }
 
 function resetState(){
+  nextBtn.classList.add("hidden")
   while(answerButtonsElement.firstChild){
     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
@@ -34,15 +42,11 @@ function showQuestion(question){
     button.innerText = answer.text
     button.classList.add("answer-btn")
     answerButtonsElement.appendChild(button)
-    button.addEventListener("click", () => {
-      currentQuestionIndex++
-      setNextQ()
-    })
-    
+    button.addEventListener("click", selectAnswer)
+    nextBtn.classList.remove("hidden")
     if (answer.correct){
       button.dataset.correct = answer.correct
     }
-
   })
 }
 
