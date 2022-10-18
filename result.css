@@ -4,7 +4,7 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100%;
-  background-image: url("./img/bg.jpg");
+  background-image: url("./bg.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -43,16 +43,17 @@ body {
   top: 200px;
 }
 
-#percentage_circle {
-  width: 480px;
-  aspect-ratio: 1/1;
+.halves-circle {
+  background: transparent;
+  height: 700px;
+  width: 700px;
+  border: 20px solid;
+  border-radius: 50%;
+  border-color: purple purple #01f3f5 #01f3f5;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(45deg);
   top: 66px;
-  border-radius: 50%;
-  border: 50px solid #01f3f5;
-  line-height: 65px;
 }
 
 .button {
@@ -72,7 +73,7 @@ body {
   cursor: pointer;
   position: absolute;
   width: 200px;
-  top: 712px;
+  top: 890px;
   left: 50%;
   transform: translateX(-50%);
 }

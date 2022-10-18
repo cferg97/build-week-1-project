@@ -1,6 +1,6 @@
 // Implementing all needed variables
-const correctAnswers = 4;
-const wrongAnswers = 2;
+const correctAnswers = 5;
+const wrongAnswers = 1;
 const allQuestions = 6;
 const correctPercentage = document.getElementById("true_question");
 const wrongPercentage = document.getElementById("false_question");
@@ -25,11 +25,12 @@ const resultCalculation = function () {
   numberOfCorrect.innerText = correctAnswers + "/6 questions";
   numberOfWrong.innerText = wrongAnswers + "/6 questions";
 
-  if (parseInt(percForCorrect) >= 60) {
-    textResult.innerHTML = `<span>Passed!!!</span>`;
-  } else {
-    textResult.innerHTML = `<span>Failed!!!</span>`;
-  }
+  // if (parseInt(percForCorrect) >= 60) {
+  //   textResult.innerHTML = `<span>Passed!!!</span>
+  //   <div id="wrong_line"></div>`;
+  // } else {
+  //   textResult.innerHTML = `<span>Failed!!!</span>`;
+  // }
 };
 
 window.onload = function () {
