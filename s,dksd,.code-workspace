@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"name": "build-week-1-project",
+		"path": "."
+	},
+	{
+		"name": "assets",
+		"path": "../../../Downloads/assets"
+	}
+],
+  "settings": {}
+}
