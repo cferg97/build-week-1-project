@@ -18,7 +18,7 @@
 #question {
     /* position:relative; */
     text-align: center;
-    margin-top:150px;
+    margin-top: 150px;
     margin-left: 400px;
     margin-right: 400px;
     margin-bottom: 100px;
@@ -28,6 +28,7 @@
     font-weight: bold;
     user-select: none;
     word-wrap: break-word;
+    z-index: -1;
 }
 
 #logo-container img {
@@ -36,6 +37,7 @@
     max-width: 200px;
     margin-top: 80px;
     margin-left: 100px;
+    z-index: 1;
 }
 
 

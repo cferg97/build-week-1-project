@@ -46,7 +46,7 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
-startTimer();
+
 
 function onTimesUp() {
   clearInterval(timerInterval);
@@ -75,7 +75,7 @@ function formatTime(time) {
     seconds = `0${seconds}`;
   }
 
-  return `${seconds}` + " seconds remaining";
+  return `${seconds}` + " seconds";
 }
 
 function setRemainingPathColor(timeLeft) {
