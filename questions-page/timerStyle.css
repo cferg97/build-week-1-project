@@ -1,0 +1,98 @@
+/* #timer{
+    display: flex;
+    max-width:300px;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 180px; */
+    /* align-content: inherit; */
+    /* display:none; */
+/* } */
+
+/* #timer-circle {
+    stroke: #00FFFF;
+    stroke-width: 20px;
+    fill-opacity: 0;
+    /* z-index: -1; */
+/* }  */
+
+/* 
+#timer-text{
+    color:white;
+    font-size:2em;
+    z-index: 1;
+    position:absolute;
+    text-align:center;
+    top:0;
+    right:0;
+    margin-top:130px;
+    margin-right:120px;
+    font-family: 'Inter', sans-serif;
+} */
+
+
+.base-timer {
+    display:flex;
+    position:absolute;
+    margin-top: 30px;
+    margin-right: 180px;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .base-timer__svg {
+    transform: scaleX(-1);
+  }
+  
+  .base-timer__circle {
+    fill: none;
+    stroke: none;
+  }
+  
+  .base-timer__path-elapsed {
+    stroke-width: 10px;
+    stroke: grey;
+  }
+  
+  .base-timer__path-remaining {
+    stroke-width: 10px;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+  }
+  
+  .base-timer__path-remaining.green {
+    color: #00FFFF;
+  }
+  
+  .base-timer__path-remaining.orange {
+    color: #067474;
+  }
+  
+  .base-timer__path-remaining.red {
+    color: #D20094;
+  }
+  
+  .base-timer__label {
+    position: absolute;
+    color:white;
+    width: 200px;
+    height: 200px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+    overflow: hidden;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+  }
+  
