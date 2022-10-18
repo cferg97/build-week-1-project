@@ -40,26 +40,18 @@ body {
   font-family: "Outfit", sans-serif;
   font-size: 45px;
   position: absolute;
-  top: 135px;
-}
-
-#correct {
-  left: 80px;
-}
-
-#wrong {
-  right: 80px;
+  top: 200px;
 }
 
 #percentage_circle {
-  width: 250px;
+  width: 480px;
   aspect-ratio: 1/1;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 40px;
+  top: 66px;
   border-radius: 50%;
-  border: 40px solid #01f3f5;
+  border: 50px solid #01f3f5;
   line-height: 65px;
 }
 
@@ -80,7 +72,7 @@ body {
   cursor: pointer;
   position: absolute;
   width: 200px;
-  top: 405px;
+  top: 712px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -97,33 +89,46 @@ body {
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
-  top: 90px;
+  top: 190px;
   color: white;
   text-align: center;
 }
 
 #true_question {
-  top: 181px;
-  left: 84px;
+  top: 280px;
   font-weight: bold;
+  font-size: 100px;
 }
 
 #false_question {
-  top: 181px;
-  right: 84px;
+  top: 299px;
   font-weight: bold;
+  font-size: 100px;
 }
 
 #quantity_true {
-  top: 234px;
-  left: 84px;
-  font-size: 24px;
+  top: 380px;
   font-weight: 100;
+  font-size: 43px;
 }
 
 #quantity_false {
-  top: 234px;
-  right: 84px;
-  font-size: 24px;
+  top: 393px;
   font-weight: 100;
+  font-size: 43px;
+}
+
+.position_correct {
+  left: 200px;
+}
+.position_wrong {
+  right: 200px;
+}
+
+#correct {
+  font-size: 100px;
+}
+
+#wrong {
+  font-size: 100px;
 }
