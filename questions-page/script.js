@@ -3,8 +3,10 @@ const answerButtonsElement = document.getElementById("answer-container")
 const questionCounterElement = document.getElementById("q-num")
 let shuffledQuestions, currentQuestionIndex
 
+
+
 function start(){
-  questionCounterElement.textContent = 1
+  questionCounterElement.textContent = 0
   shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   currentQuestionIndex = 0
   setNextQ()
@@ -13,12 +15,15 @@ function start(){
 function setNextQ(){
   resetState()
   showQuestion(shuffledQuestions[currentQuestionIndex])
+  const counter = parseInt(questionCounterElement.textContent, 0)
+  questionCounterElement.textContent = counter + 1
 }
 
 function resetState(){
   while(answerButtonsElement.firstChild){
     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
+  
 }
 
 function showQuestion(question){
@@ -31,6 +36,7 @@ function showQuestion(question){
       button.dataset.correct = answer.correct
     }
     button.addEventListener("click", selectAnswer)
+    button.addEventListener("click", setNextQ)
     answerButtonsElement.appendChild(button)
   })
 }
@@ -45,25 +51,21 @@ function selectAnswer(e) {
   })
 }
 
-function setStatusClass(element, correct){
-  clearStatusClass(element)
-  if (correct){
-      element.classList.add("correct")
-  }else{
-      element.classList.add("wrong") //changes style based on whether answer is correct or incorrect
-  }
-}
+// function setStatusClass(element, correct){
+//   clearStatusClass(element)
+//   if (correct){
+//       element.classList.add("correct")
+//   }else{
+//       element.classList.add("wrong") //changes style based on whether answer is correct or incorrect
+//   }
+// }
 
 
 function processResults(isCorrect){
-  if (!isCorrect){
-    return
+  if (!isCorrect || isCorrect){
+    resetState()
   }
-
-  const counter = parseInt(questionCounterElement.textContent, 0)
-  questionCounterElement.textContent = counter + 1
 }
-
 
 
 
@@ -119,7 +121,8 @@ document.getElementById("app").innerHTML = `
 startTimer();
 
 function onTimesUp() {
-  clearInterval(timerInterval);
+  clearInterval(timerInterval)
+  setNextQ()
 }
 
 function startTimer() {
@@ -133,7 +136,7 @@ function startTimer() {
     setRemainingPathColor(timeLeft);
 
     if (timeLeft === 0) {
-      onTimesUp();
+      onTimesUp()
     }
   }, 1000);
 }
