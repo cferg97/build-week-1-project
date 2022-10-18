@@ -45,6 +45,11 @@ p {
 .svgs {
   margin-left: 18px;
   justify-content: center;
+  color: black;
+}
+
+  path {
+  fill: #0B113B;
 }
 
 #text-input {
@@ -98,4 +103,3 @@ hr {
 #btn-holder {
   text-align: center;
 }
-
