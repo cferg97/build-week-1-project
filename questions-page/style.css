@@ -18,7 +18,7 @@
 #question {
     /* position:relative; */
     text-align: center;
-    margin-top:250px;
+    margin-top:150px;
     margin-left: 400px;
     margin-right: 400px;
     margin-bottom: 100px;
@@ -54,7 +54,7 @@
     letter-spacing: 1px;
     font-size: 16px;
     color: white;
-    /* font-weight:bold; */
+    font-weight:bold;
     background: rgba(255, 255, 255, 0.10);
     border: 3px solid rgba(255,255,255,0.5);
     border-radius: 60px;
