@@ -1,8 +1,68 @@
+const questionContainer = document.getElementById("question")
+const answerButtonsElement = document.getElementById("answer-container")
+const questionCounterElement = document.getElementById("q-num")
+let shuffledQuestions, currentQuestionIndex
+
+function start(){
+  questionCounterElement.textContent = 1
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5)
+  currentQuestionIndex = 0
+  setNextQ()
+}
+
+function setNextQ(){
+  resetState()
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+}
+
+function resetState(){
+  while(answerButtonsElement.firstChild){
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  }
+}
+
+function showQuestion(question){
+  questionContainer.innerText = question.question
+  question.answers.forEach(answer => {
+    const button = document.createElement("button")
+    button.innerText = answer.text
+    button.classList.add("answer-btn")
+    if (answer.correct){
+      button.dataset.correct = answer.correct
+    }
+    button.addEventListener("click", selectAnswer)
+    answerButtonsElement.appendChild(button)
+  })
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target
+  const correct = selectedButton.dataset.correct
+  processResults(correct)
+  setStatusClass(document.body, correct)
+  Array.from(answerButtonsElement.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct)
+  })
+}
+
+function setStatusClass(element, correct){
+  clearStatusClass(element)
+  if (correct){
+      element.classList.add("correct")
+  }else{
+      element.classList.add("wrong") //changes style based on whether answer is correct or incorrect
+  }
+}
 
 
+function processResults(isCorrect){
+  if (!isCorrect){
+    return
+  }
 
-
-
+  const counter = parseInt(questionCounterElement.textContent, 0)
+  questionCounterElement.textContent = counter + 1
+}
 
 
 
