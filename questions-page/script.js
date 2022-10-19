@@ -10,7 +10,6 @@ let wrongAnswers = []
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++
   setNextQ()
-  startTimer()
 })
 
 function start(){
@@ -18,6 +17,7 @@ function start(){
   shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   currentQuestionIndex = 0
   setNextQ()
+  startTimer()
 }
 
 function setNextQ(){
@@ -41,28 +41,22 @@ function showQuestion(question){
     const button = document.createElement("button")
     button.innerText = answer.text
     button.classList.add("answer-btn")
-    answerButtonsElement.appendChild(button)
-    button.addEventListener("click", selectAnswer)
-    nextBtn.classList.remove("hidden")
     if (answer.correct){
       button.dataset.correct = answer.correct
     }
+    button.addEventListener("click", selectAnswer)
+    answerButtonsElement.appendChild(button)
   })
 }
 
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
-  processResults(correct)
-  setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct)
-  })
+  // Array.from(answerButtonsElement.children).forEach(button => {
+  //   setStatusClass(button, button.dataset.correct)
+  // })
   if (shuffledQuestions.length > currentQuestionIndex + 1){
-    resetState()
-    questionContainer.classList.add("hidden")
-    const seeResults = document.createElement("button")
-    seeResults.innerText = "See your results on the next page"
+      nextBtn.classList.remove("hidden")
     }
 }
 
@@ -76,17 +70,11 @@ function selectAnswer(e) {
 // }
 
 
-function processResults(isCorrect){
-  if (!isCorrect){
-
-  }
-
-  if (!isCorrect || isCorrect){
-    resetState()
-  }
-}
-
-
+// function processResults(isCorrect){
+//   if (!isCorrect){
+//     return
+//   }
+// }
 
 // //timer stuff below here idfk
 // function timerStuff(){
