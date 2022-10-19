@@ -1,0 +1,117 @@
+#question-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    max-height: 100vh;
+    background-image: url("/assets/bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.hidden{
+    display:none;
+}
+
+#question {
+    /* position:relative; */
+    text-align: center;
+    margin-top: 150px;
+    margin-left: 400px;
+    margin-right: 400px;
+    margin-bottom: 100px;
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    user-select: none;
+    word-wrap: break-word;
+    z-index: -1;
+}
+
+#logo-container img {
+    display: flex;
+    position: absolute;
+    max-width: 200px;
+    margin-top: 50px;
+    margin-left: 100px;
+    z-index: 1;
+}
+
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 40px;
+}
+
+.answer-btn {
+    height: 80px;
+    width: 400px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: white;
+    font-weight:bold;
+    background: rgba(255, 255, 255, 0.10);
+    border: 3px solid rgba(255,255,255,0.5);
+    border-radius: 60px;
+    /* z-index: 1; */
+    transition: 0.3s;
+}
+
+
+.answer-btn:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.30);
+    transition: 0.3s;
+}
+
+.answer-btn:focus {
+    background: linear-gradient(#D20094,#900080);
+    filter: alpha(opacity=0.3);
+    
+
+}
+
+#question-counter-container {
+    user-select: none;
+    font-size: 0.75em;
+    color: white;
+    letter-spacing: 3px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin: 200px;
+}
+
+#next-btn{
+    position:absolute;
+    background-color: #00ffff;
+    left: 60%;
+    height: 50px;
+    width: 190px;
+    margin-top: 100px;
+    color: black;
+    font-family: "Outfit", sans-serif;
+    font-size: 25px;
+    box-shadow: 5px 5px 30px #00ffffc5;
+    font-weight: bold;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    letter-spacing: 2px;
+}
+
+#next-btn:hover{
+    box-shadow: 5px 5px 50px #64fdfdc5;
+}
+
+#other-col {
+    color: #D20094;
+}
+
