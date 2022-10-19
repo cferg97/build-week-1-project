@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100%;
-  background-image: url("/welcome page/assets/bg.jpg");
+  background-image: url("/assets/bg.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -88,4 +88,9 @@ button {
   position: relative;
   bottom: 40px;
   left: 100px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
