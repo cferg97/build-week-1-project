@@ -1,7 +1,7 @@
 body {
   justify-content: center;
   min-height: 100vh;
-  background-image: url("/welcome page/assets/bg.jpg");
+  background-image: url("/assets/bg.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -97,4 +97,20 @@ button {
 
 #btn-holder {
   text-align: center;
+}
+
+.starColor {
+  fill: #00ffff;
+}
+
+.colorOff {
+  fill: black;
+}
+
+svg:hover {
+  fill: #00ffff;
+}
+
+.blue-svg:hover {
+  fill: black;
 }
