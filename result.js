@@ -1,11 +1,6 @@
 // Implementing all needed variables
-<<<<<<< Updated upstream
-const correctAnswers = 4;
-const wrongAnswers = 2;
-=======
-const correctAnswers = 2;
-const wrongAnswers = 4;
->>>>>>> Stashed changes
+const correctAnswers = 3;
+const wrongAnswers = 3;
 const allQuestions = 6;
 const correctPercentage = document.getElementById("true_question");
 const wrongPercentage = document.getElementById("false_question");
@@ -47,11 +42,6 @@ const resultCalculation = function () {
   numberOfWrong.innerText = wrongAnswers + "/6 questions";
 
   if (parseInt(percForCorrect) >= 60) {
-<<<<<<< Updated upstream
-    textResult.innerText = "Passed!!!";
-  } else {
-    textResult.innerText = "Failed!!!";
-=======
     textResult.innerHTML = `<div id="text_result">
     Congratulations!
     <br />
@@ -68,7 +58,6 @@ const resultCalculation = function () {
   </div>`;
   } else {
     textResult.innerHTML = `<div id="text_result">Oh no, you failed this one</div>`;
->>>>>>> Stashed changes
   }
 };
 
