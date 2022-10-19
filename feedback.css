@@ -6,10 +6,10 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  font-family: "Inter", sans-serif;
+
   font-family: "Outfit", sans-serif;
   overflow: hidden;
-} 
+}
 
 #logo-container img {
   max-width: 200px;
@@ -19,9 +19,9 @@ body {
 }
 
 h1 {
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
   color: white;
-  font-size: 3rem;
+  font-size: 50px;
   text-align: center;
   margin-bottom: 0;
   font-size: bold;
@@ -113,4 +113,16 @@ svg:hover {
 
 .blue-svg:hover {
   fill: black;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.star-style {
+  padding-left: 20px;
 }
