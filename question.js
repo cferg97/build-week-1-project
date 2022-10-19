@@ -206,12 +206,12 @@ const questions = [ //array of questions and answers
         ]
     },
     {
-        question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
+        question: "Which of these is the correct way to declare a variable in JS?",
         answers: [
-            {text: "Static", correct: false},
-            {text: "Public", correct: false},
-            {text: "Final", correct: true},
-            {text: "Private", correct: false}
+            {text: "'hello = let'", correct: false},
+            {text: "let hello = let", correct: false},
+            {text: "let hello = 'hello'", correct: true},
+            {text: "hello var", correct: false}
         ]
     },
     {
