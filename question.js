@@ -105,7 +105,6 @@ function timer(){
   };
   
   const TIME_LIMIT = 20;
-  let timePassed = 0;
   let timeLeft = TIME_LIMIT;
   let timerInterval = null;
   let remainingPathColor = COLOR_CODES.info.color;
@@ -135,13 +134,11 @@ function timer(){
   `
   
   
-  
-  
-  
   startTimer()
   
   function startTimer() {
-    
+    timePassed = 0
+    timeLeft = 20
     timerInterval = setInterval(() => {
       timePassed = timePassed += 1;
       timeLeft = TIME_LIMIT - timePassed;
@@ -152,7 +149,10 @@ function timer(){
       setRemainingPathColor(timeLeft);
   
       if (timeLeft === 0) {
-        onTimesUp();
+        const curInd = (shuffledQuestions[currentQuestionIndex])
+        wrongAnswers.push(wrongAnswers, curInd)
+        console.log(wrongAnswers)
+        onTimesUp()
         setNextQ()
       }
     }, 1000);
