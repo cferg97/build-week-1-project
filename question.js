@@ -7,25 +7,26 @@ let correctAnswers = []
 let wrongAnswers = []
 
 
+
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++
   setNextQ()
-  timer()
 })
 
 function start(){
   questionCounterElement.textContent = 0
-  shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   currentQuestionIndex = 0
   setNextQ()
-  timer()
 }
 
 function setNextQ(){
   resetState()
+  timer()
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   showQuestion(shuffledQuestions[currentQuestionIndex])
   const counter = parseInt(questionCounterElement.textContent, 0)
   questionCounterElement.textContent = counter + 1
+  
 }
 
 function resetState(){
@@ -131,7 +132,7 @@ function timer(){
       timeLeft
     )}</span>
   </div>
-  `;
+  `
   
   
   
@@ -152,6 +153,7 @@ function timer(){
   
       if (timeLeft === 0) {
         onTimesUp();
+        setNextQ()
       }
     }, 1000);
   }
