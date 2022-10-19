@@ -1,3 +1,4 @@
+function timer(){
 const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
@@ -46,10 +47,11 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
+startTimer()
 
 
 function onTimesUp() {
-  clearInterval(timerInterval);
+  clearInterval(timerInterval)
 }
 
 function startTimer() {
@@ -64,6 +66,7 @@ function startTimer() {
 
     if (timeLeft === 0) {
       onTimesUp();
+      setNextQ()
     }
   }, 1000);
 }
@@ -72,7 +75,7 @@ function formatTime(time) {
   let seconds = time % 60;
 
   if (seconds < 10) {
-    seconds = `0${seconds}`;
+    seconds = `${seconds}`;
   }
 
   return `${seconds}` + " seconds";
@@ -109,4 +112,6 @@ function setCircleDasharray() {
   document
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
+}
+
 }

@@ -17,7 +17,6 @@ function start(){
   shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   currentQuestionIndex = 0
   setNextQ()
-  startTimer()
 }
 
 function setNextQ(){
@@ -28,11 +27,11 @@ function setNextQ(){
 }
 
 function resetState(){
+  timer()
   nextBtn.classList.add("hidden")
   while(answerButtonsElement.firstChild){
     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
-  
 }
 
 function showQuestion(question){
@@ -52,12 +51,16 @@ function showQuestion(question){
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
-  // Array.from(answerButtonsElement.children).forEach(button => {
-  //   setStatusClass(button, button.dataset.correct)
-  // })
   if (shuffledQuestions.length > currentQuestionIndex + 1){
       nextBtn.classList.remove("hidden")
     }
+  else{
+    nextBtn.classList.remove("hidden")
+    nextBtn.innerText = "See Results"
+    nextBtn.addEventListener("click", () => {
+      window.location="result.html"
+    })
+  }
 }
 
 // function setStatusClass(element, correct){
