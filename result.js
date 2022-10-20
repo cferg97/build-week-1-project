@@ -1,6 +1,6 @@
 // Implementing all needed variables
-const correctAnswers = 3;
-const wrongAnswers = 3;
+const correctAnswers = 4;
+const wrongAnswers = 2;
 const allQuestions = 6;
 const correctPercentage = document.getElementById("true_question");
 const wrongPercentage = document.getElementById("false_question");
