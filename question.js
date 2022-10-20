@@ -1,9 +1,13 @@
-const questionContainer = document.getElementById("question");
-const answerButtonsElement = document.getElementById("answer-container");
-const questionCounterElement = document.getElementById("q-num");
-const nextBtn = document.getElementById("next-btn");
-let shuffledQuestions, currentQuestionIndex;
-let score = 0;
+const questionContainer = document.getElementById("question")
+const answerButtonsElement = document.getElementById("answer-container")
+const questionCounterElement = document.getElementById("q-num")
+const nextBtn = document.getElementById("next-btn")
+let shuffledQuestions, currentQuestionIndex
+let correctAnswers = []
+let wrongAnswers = []
+let score = 0
+
+const timeOut = setTimeout(timer(), 20000)
 
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
@@ -17,12 +21,13 @@ function start() {
   setNextQ();
 }
 
-function setNextQ() {
-  resetState();
-  timer();
-  showQuestion(shuffledQuestions[currentQuestionIndex]);
-  const counter = parseInt(questionCounterElement.textContent, 0);
-  questionCounterElement.textContent = counter + 1;
+function setNextQ(){
+  resetState()
+  clearTimeout(timeOut)
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+  const counter = parseInt(questionCounterElement.textContent, 0)
+  questionCounterElement.textContent = counter + 1
+  
 }
 
 function resetState() {
