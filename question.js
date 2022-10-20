@@ -2,10 +2,9 @@ const questionContainer = document.getElementById("question")
 const answerButtonsElement = document.getElementById("answer-container")
 const questionCounterElement = document.getElementById("q-num")
 const nextBtn = document.getElementById("next-btn")
-const scoreUpElement = document.getElementById("score-up")
-const scoreUp = parseInt(scoreUpElement.textContent, 0)
 let shuffledQuestions, currentQuestionIndex
-// let wrongAnswers = []
+let correctAnswers = []
+let wrongAnswers = []
 
 
 
@@ -16,6 +15,7 @@ nextBtn.addEventListener("click", () => {
 
 function start(){
   questionCounterElement.textContent = 0
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   currentQuestionIndex = 0
   setNextQ()
 }
@@ -23,7 +23,6 @@ function start(){
 function setNextQ(){
   resetState()
   timer()
-  shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   showQuestion(shuffledQuestions[currentQuestionIndex])
   const counter = parseInt(questionCounterElement.textContent, 0)
   questionCounterElement.textContent = counter + 1
@@ -43,9 +42,9 @@ function showQuestion(question){
     const button = document.createElement("button")
     button.innerText = answer.text
     button.classList.add("answer-btn")
-    if (answer.correct) {
+    if (answer.correct){
       button.dataset.correct = answer.correct
-  }
+    }
     button.addEventListener("click", selectAnswer)
     answerButtonsElement.appendChild(button)
   })
@@ -54,12 +53,10 @@ function showQuestion(question){
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
-  processResults(correct)
   if (shuffledQuestions.length > currentQuestionIndex + 1){
       nextBtn.classList.remove("hidden")
     }
   else{
-    localStorage.setItem(scoreUpElement)
     const timer = document.getElementById("app")
     timer.classList.add("hidden")
     nextBtn.classList.remove("hidden")
@@ -70,13 +67,21 @@ function selectAnswer(e) {
   }
 }
 
-function processResults(isCorrect){
-  if (!isCorrect){   //if the answer is not correct, do nothing
-      return
-  }
-  const scoreUp = parseInt(scoreUpElement.textContent, 0)
-  scoreUpElement.textContent = scoreUp + 1
-}  
+// function setStatusClass(element, correct){
+//   clearStatusClass(element)
+//   if (correct){
+//       element.classList.add("correct")
+//   }else{
+//       element.classList.add("wrong") //changes style based on whether answer is correct or incorrect
+//   }
+// }
+
+
+// function processResults(isCorrect){
+//   if (!isCorrect){
+//     return
+//   }
+// }
 
 // //timer stuff below here idfk
 
@@ -100,6 +105,7 @@ function timer(){
   };
   
   const TIME_LIMIT = 20;
+  let timePassed = 0;
   let timeLeft = TIME_LIMIT;
   let timerInterval = null;
   let remainingPathColor = COLOR_CODES.info.color;
@@ -126,14 +132,12 @@ function timer(){
       timeLeft
     )}</span>
   </div>
-  `
-  
+  `  
   
   startTimer()
   
   function startTimer() {
-    timePassed = 0
-    timeLeft = 20
+    
     timerInterval = setInterval(() => {
       timePassed = timePassed += 1;
       timeLeft = TIME_LIMIT - timePassed;
@@ -144,10 +148,7 @@ function timer(){
       setRemainingPathColor(timeLeft);
   
       if (timeLeft === 0) {
-        // const curInd = (shuffledQuestions[currentQuestionIndex])
-        // wrongAnswers.push(wrongAnswers, curInd)
-        // console.log(wrongAnswers)
-        onTimesUp()
+        onTimesUp();
         setNextQ()
       }
     }, 1000);
@@ -198,8 +199,8 @@ function timer(){
       .getElementById("base-timer-path-remaining")
       .setAttribute("stroke-dasharray", circleDasharray);
   }
-    return
-}
+  
+  }
 
 const questions = [ //array of questions and answers
     {
@@ -288,4 +289,3 @@ const questions = [ //array of questions and answers
         ]
     }
 ]
-
