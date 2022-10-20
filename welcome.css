@@ -32,11 +32,12 @@ margin-left: 0;
 }
 
 #exam-text {
-  font-weight: bold;
+  font-weight: bolder;
   font-family: "Outfit", sans-serif;
-  font-size: 95px;
-  margin-left: 10px;
-  margin-top: 0;
+  font-size: 90px;
+  margin-left: 15px;
+  margin-top: 10px;
+  
 }
 
 #welcome-header {
@@ -45,7 +46,7 @@ margin-left: 0;
 
 #instruction-title {
   margin-top: 50px;
-  font-size: 34px;
+  font-size: 40px;
   color: #c2128d;
   font-weight: bolder;
   margin-bottom: 10px;
@@ -57,10 +58,12 @@ margin-left: 0;
 
 li {
   margin-top: 10px;
+  font-size: 20px;
 }
 
 #instruction-text {
   margin-bottom: 50px;
+  font-size: 22px;
 }
 
 #checkbox {
@@ -88,7 +91,7 @@ button {
 #btn-container {
   position: relative;
   bottom: 40px;
-  left: 100px;
+  left: 250px;
   display: flex;
   
 }
