@@ -42,9 +42,6 @@ function showQuestion(question){
     const button = document.createElement("button")
     button.innerText = answer.text
     button.classList.add("answer-btn")
-    if (answer.correct){
-      button.dataset.correct = answer.correct
-    }
     button.addEventListener("click", selectAnswer)
     answerButtonsElement.appendChild(button)
   })
@@ -52,7 +49,6 @@ function showQuestion(question){
 
 function selectAnswer(e) {
   const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
   if (shuffledQuestions.length > currentQuestionIndex + 1){
       nextBtn.classList.remove("hidden")
     }
@@ -66,22 +62,6 @@ function selectAnswer(e) {
     })
   }
 }
-
-// function setStatusClass(element, correct){
-//   clearStatusClass(element)
-//   if (correct){
-//       element.classList.add("correct")
-//   }else{
-//       element.classList.add("wrong") //changes style based on whether answer is correct or incorrect
-//   }
-// }
-
-
-// function processResults(isCorrect){
-//   if (!isCorrect){
-//     return
-//   }
-// }
 
 // //timer stuff below here idfk
 
