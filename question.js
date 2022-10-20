@@ -71,6 +71,7 @@ function selectAnswer(e) {
       window.location="result.html"
     })
   }
+  score = num.toString()
   localStorage.setItem(score, score)
 }
 
