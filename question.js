@@ -3,8 +3,6 @@ const answerButtonsElement = document.getElementById("answer-container");
 const questionCounterElement = document.getElementById("q-num");
 const nextBtn = document.getElementById("next-btn");
 let shuffledQuestions, currentQuestionIndex;
-let correctAnswers = [];
-let wrongAnswers = [];
 
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
