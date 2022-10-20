@@ -71,7 +71,7 @@ function selectAnswer(e) {
       window.location="result.html"
     })
   }
-  localStorage.setItem(score)
+  localStorage.setItem(score, score)
 }
 
 function processResults(isCorrect){
