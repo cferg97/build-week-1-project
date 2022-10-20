@@ -65,8 +65,9 @@ function selectAnswer(e) {
       window.location = "result.html";
     });
   }
-  score = num.toString();
-  localStorage.setItem(score, score);
+  score = score.toString();
+  console.log(score);
+  localStorage.setItem("score", score);
 }
 
 function processResults(isCorrect) {

@@ -1,6 +1,6 @@
 // Implementing all needed variables
-const correctAnswers = 8;
-const wrongAnswers = 2;
+const correctAnswers = 6; //localStorage.getItem("score");
+const wrongAnswers = 4; // 10 - parseInt(correctAnswers);
 const allQuestions = 10;
 const correctPercentage = document.getElementById("true_question");
 const wrongPercentage = document.getElementById("false_question");
@@ -63,4 +63,5 @@ const resultCalculation = function () {
 
 window.onload = function () {
   resultCalculation();
+  localStorage.clear();
 };
