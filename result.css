@@ -45,7 +45,6 @@ body {
 .container {
   height: 550px;
   width: 550px;
-  background-color: white;
   position: relative;
   transform: translate(-50%, -50%);
   top: 345px;
@@ -60,8 +59,12 @@ body {
   position: absolute;
   height: 75%;
   width: 75%;
-  background-color: black;
   border-radius: 50%;
+  background-image: url(./img/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .button {
