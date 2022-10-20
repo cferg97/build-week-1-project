@@ -1,65 +1,64 @@
 /* from https://codepen.io/geoffgraham/pen/yLywVbW with some changes */
 
 .base-timer {
-    display:flex;
-    position:absolute;
-    margin-top: 30px;
-    margin-right: 180px;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 200px;
-  }
-  
-  .base-timer__svg {
-    transform: scaleX(-1);
-  }
-  
-  .base-timer__circle {
-    fill: none;
-    stroke: none;
-  }
-  
-  .base-timer__path-elapsed {
-    stroke-width: 10px;
-    stroke: grey;
-  }
-  
-  .base-timer__path-remaining {
-    stroke-width: 10px;
-    stroke-linecap: round;
-    transform: rotate(-90deg);
-    transform-origin: center;
-    transition: 1s linear all;
-    fill-rule: nonzero;
-    stroke: currentColor;
-  }
-  
-  .base-timer__path-remaining.green {
-    color: #00FFFF;
-  }
-  
-  .base-timer__path-remaining.orange {
-    color: #067474;
-  }
-  
-  .base-timer__path-remaining.red {
-    color: #D20094;
-  }
-  
-  .base-timer__label {
-    position: absolute;
-    color:white;
-    width: 200px;
-    height: 200px;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    word-wrap: break-word;
-    overflow: hidden;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
-    user-select: none;
-  }
-  
+  display: flex;
+  position: absolute;
+  margin-top: 30px;
+  margin-right: 180px;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 10px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 10px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: #00FFFF;
+}
+
+.base-timer__path-remaining.orange {
+  color: #067474;
+}
+
+.base-timer__path-remaining.red {
+  color: #D20094;
+}
+
+.base-timer__label {
+  position: absolute;
+  color: white;
+  width: 200px;
+  height: 200px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-wrap: break-word;
+  overflow: hidden;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+}
