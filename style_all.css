@@ -25,12 +25,8 @@
   color: white;
   font-family: "Inter", sans-serif;
   margin-left: 300px;
+  margin-top: 50px;
   overflow: hidden;
-}
-
-#logo {
-  max-width: 200px;
-  display: none;
 }
 
 #welcome-text {
