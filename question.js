@@ -7,7 +7,7 @@ let correctAnswers = []
 let wrongAnswers = []
 let score = 0
 
-
+const timeOut = setTimeout(timer(), 20000)
 
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++
@@ -23,7 +23,7 @@ function start(){
 
 function setNextQ(){
   resetState()
-  timer()
+  clearTimeout(timeOut)
   showQuestion(shuffledQuestions[currentQuestionIndex])
   const counter = parseInt(questionCounterElement.textContent, 0)
   questionCounterElement.textContent = counter + 1
