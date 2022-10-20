@@ -1,7 +1,7 @@
 // Implementing all needed variables
 const correctAnswers = 4;
 const wrongAnswers = 2;
-const allQuestions = 6;
+const allQuestions = 10;
 const correctPercentage = document.getElementById("true_question");
 const wrongPercentage = document.getElementById("false_question");
 const numberOfCorrect = document.getElementById("quantity_true");
@@ -38,8 +38,8 @@ const resultCalculation = function () {
   correctPercentage.innerText = preciseCorrect + "%";
   wrongPercentage.innerText = preciseWrong + "%";
 
-  numberOfCorrect.innerText = correctAnswers + "/6 questions";
-  numberOfWrong.innerText = wrongAnswers + "/6 questions";
+  numberOfCorrect.innerText = correctAnswers + "/10 questions";
+  numberOfWrong.innerText = wrongAnswers + "/10 questions";
 
   if (parseInt(percForCorrect) >= 60) {
     textResult.innerHTML = `<div id="text_result">
