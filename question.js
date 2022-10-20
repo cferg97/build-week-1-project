@@ -2,9 +2,10 @@ const questionContainer = document.getElementById("question")
 const answerButtonsElement = document.getElementById("answer-container")
 const questionCounterElement = document.getElementById("q-num")
 const nextBtn = document.getElementById("next-btn")
+const scoreUpElement = document.getElementById("score-up")
+const scoreUp = parseInt(scoreUpElement.textContent, 0)
 let shuffledQuestions, currentQuestionIndex
-let correctAnswers = []
-let wrongAnswers = []
+// let wrongAnswers = []
 
 
 
@@ -42,6 +43,9 @@ function showQuestion(question){
     const button = document.createElement("button")
     button.innerText = answer.text
     button.classList.add("answer-btn")
+    if (answer.correct) {
+      button.dataset.correct = answer.correct
+  }
     button.addEventListener("click", selectAnswer)
     answerButtonsElement.appendChild(button)
   })
@@ -49,10 +53,13 @@ function showQuestion(question){
 
 function selectAnswer(e) {
   const selectedButton = e.target
+  const correct = selectedButton.dataset.correct
+  processResults(correct)
   if (shuffledQuestions.length > currentQuestionIndex + 1){
       nextBtn.classList.remove("hidden")
     }
   else{
+    localStorage.setItem(scoreUpElement)
     const timer = document.getElementById("app")
     timer.classList.add("hidden")
     nextBtn.classList.remove("hidden")
@@ -62,6 +69,14 @@ function selectAnswer(e) {
     })
   }
 }
+
+function processResults(isCorrect){
+  if (!isCorrect){   //if the answer is not correct, do nothing
+      return
+  }
+  const scoreUp = parseInt(scoreUpElement.textContent, 0)
+  scoreUpElement.textContent = scoreUp + 1
+}  
 
 // //timer stuff below here idfk
 
@@ -129,9 +144,9 @@ function timer(){
       setRemainingPathColor(timeLeft);
   
       if (timeLeft === 0) {
-        const curInd = (shuffledQuestions[currentQuestionIndex])
-        wrongAnswers.push(wrongAnswers, curInd)
-        console.log(wrongAnswers)
+        // const curInd = (shuffledQuestions[currentQuestionIndex])
+        // wrongAnswers.push(wrongAnswers, curInd)
+        // console.log(wrongAnswers)
         onTimesUp()
         setNextQ()
       }
@@ -183,8 +198,8 @@ function timer(){
       .getElementById("base-timer-path-remaining")
       .setAttribute("stroke-dasharray", circleDasharray);
   }
-  
-  }
+    return
+}
 
 const questions = [ //array of questions and answers
     {
