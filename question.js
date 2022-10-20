@@ -3,6 +3,8 @@ const answerButtonsElement = document.getElementById("answer-container");
 const questionCounterElement = document.getElementById("q-num");
 const nextBtn = document.getElementById("next-btn");
 let shuffledQuestions, currentQuestionIndex;
+let correctAnswers = [];
+let wrongAnswers = [];
 
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
@@ -48,6 +50,11 @@ function showQuestion(question) {
 function selectAnswer(e) {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
+  processResults(correct);
+  // console.log(correct)
+  // if (correct == true) {
+  //   return score = score + 1
+  // }
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextBtn.classList.remove("hidden");
   } else {
@@ -59,6 +66,16 @@ function selectAnswer(e) {
       window.location = "result.html";
     });
   }
+  score = num.toString();
+  localStorage.setItem(score, score);
+}
+
+function processResults(isCorrect) {
+  if (!isCorrect) {
+    //if the answer is not correct, do nothing
+    return;
+  }
+  score++;
 }
 
 // function setStatusClass(element, correct){
