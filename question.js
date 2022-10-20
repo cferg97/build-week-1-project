@@ -5,6 +5,7 @@ const nextBtn = document.getElementById("next-btn")
 let shuffledQuestions, currentQuestionIndex
 let correctAnswers = []
 let wrongAnswers = []
+let score = 0
 
 
 
@@ -53,6 +54,9 @@ function showQuestion(question){
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
+  if (selectedButton === correct) {
+    score++
+  }
   if (shuffledQuestions.length > currentQuestionIndex + 1){
       nextBtn.classList.remove("hidden")
     }
