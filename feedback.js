@@ -1,28 +1,45 @@
-const paths = document.querySelectorAll("path");
-const stars = document.querySelectorAll("svg");
-const blueSvg = document.querySelectorAll(".blue-svg");
+
 const input = document.querySelector("input");
 
-const starColor = function () {
-  for (let i = 0; i < stars.length; i++) {
-    stars[i].addEventListener("click", () => {
-      for (let i = 0; i < paths.length; i++) {}
-      paths[i].classList.toggle("starColor");
-    });
-  }
-};
+let starsContainer = document.getElementById("stars");
 
-starColor();
+for (let i = 0; i < 10; i++) {
+  let starImg = document.createElement("img");
+  starImg.src = "./assets/star-black.svg";
+  starImg.className = "star-style";
+  starsContainer.appendChild(starImg);
 
-const colorOff = function () {
-  for (let i = 0; i < blueSvg.length; i++) {
-    blueSvg[i].addEventListener("click", () => {
-      for (let i = 0; i < paths.length; i++) {}
-      paths[i].classList.toggle("colorOff");
-    });
+  starImg.addEventListener("mouseover", () => onStarHover(i));
+  starImg.addEventListener("mouseleave", onStarOut);
+  starImg.addEventListener("click", () => onStarClick(i));
+}
+
+let stars = document.querySelectorAll(".star-style");
+let active = -1;
+
+function onStarHover(i) {
+  fill(i);
+}
+
+function fill(ratingValue) {
+  for (let i = 0; i < 10; i++) {
+    if (i <= ratingValue) {
+      stars[i].src = "./assets/star.svg";
+    } else {
+      stars[i].src = "./assets/star-black.svg";
+    }
   }
-};
-colorOff();
+}
+
+function onStarOut() {
+  fill(active);
+}
+
+function onStarClick(i) {
+  active = i;
+  // document.getElementById("display-star-value").innerHTML = i + 1;
+  fill(active);
+}
 
 input.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
