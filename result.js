@@ -26,6 +26,7 @@ const resultCalculation = function () {
   let progressEndValue = parseInt(percForWrong);
   let speed = 5;
 
+  //Part of code which fulfiling progress bar
   let progress = setInterval(() => {
     progressValue++;
     progressBar.style.background = `conic-gradient(
@@ -40,6 +41,7 @@ const resultCalculation = function () {
   correctPercentage.innerText = preciseCorrect + "%";
   wrongPercentage.innerText = preciseWrong + "%";
 
+  //Getting precise percentage of correct and wrong answers
   numberOfCorrect.innerText = correctAnswer + "/10 questions";
   numberOfWrong.innerText = wrongAnswer + "/10 questions";
 
