@@ -25,11 +25,10 @@ function start() {
   shuffledQuestions = questions.sort(() => Math.random() - 0.5); //randomise questions
   currentQuestionIndex = 0; //set current index to 0
   setNextQ(); //set next question
-}
+} 
 
 function setNextQ() {
-  resetState(); //run reset state function
-  clearTimeout(timeOut); //attempting to reset timer, doesn't work
+  resetState(); //run reset state function; //attempting to reset timer, doesn't work
   timer(); //run timer function
   showQuestion(shuffledQuestions[currentQuestionIndex]); //show random question using showQuestion function
   const counter = parseInt(questionCounterElement.textContent, 0); //grab text from counter element
@@ -37,6 +36,7 @@ function setNextQ() {
 }
 
 function resetState() { //reset state function
+  
   nextBtn.classList.add("hidden"); //hide next button
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild); //remove all existing question buttons
@@ -64,7 +64,7 @@ function selectAnswer(e) { //select answer on event function
   // console.log(correct)
   // if (correct == true) {
   //   return score = score + 1
-  // }
+  // } //failed attempt at incrementing score
   if (shuffledQuestions.length > currentQuestionIndex + 1) { //if there is still questions left, continue
     nextBtn.classList.remove("hidden");
   } else { //else (When there's no questions left)
@@ -90,7 +90,7 @@ function processResults(isCorrect) {
   console.log(score);
 }
 
-// function setStatusClass(element, correct){
+// function setStatusClass(element, correct){ //pieces of code from previous quiz, irrelevant here
 //   clearStatusClass(element)
 //   if (correct){
 //       element.classList.add("correct")
@@ -106,6 +106,13 @@ function processResults(isCorrect) {
 // }
 
 // //timer stuff below here idfk
+function resetTimer(){
+  let timePassed = 0;
+  let timeLeft = TIME_LIMIT;
+  let timerInterval = null;
+  let remainingPathColor = COLOR_CODES.info.color;
+}
+
 
 function timer() {
   const FULL_DASH_ARRAY = 283;
