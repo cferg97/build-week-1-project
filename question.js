@@ -131,7 +131,7 @@ function timer() {
   const TIME_LIMIT = 30;
   let timePassed = 0;
   let timeLeft = TIME_LIMIT;
-  let timerInterval = ""
+  let timerInterval = "";
   let remainingPathColor = COLOR_CODES.info.color;
 
   document.getElementById("app").innerHTML = `
@@ -158,11 +158,13 @@ function timer() {
   </div>
   `;
 
-  startTimer() //start timer
+  startTimer(); //start timer
 
   function startTimer() {
+    clearInterval(timerInterval);
     timerInterval = setInterval(() => {
       timePassed = timePassed += 1;
+
       timeLeft = TIME_LIMIT - timePassed;
       document.getElementById("base-timer-label").innerHTML =
         formatTime(timeLeft);
@@ -171,12 +173,11 @@ function timer() {
 
       if (timeLeft === 0) {
         onTimesUp();
-        setNextQ()
+        setNextQ();
       }
     }, 1000);
   }
 
- ;
   function onTimesUp() {
     clearInterval(timerInterval);
   }
