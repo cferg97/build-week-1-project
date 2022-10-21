@@ -1,7 +1,7 @@
-
 const input = document.querySelector("input");
-
 let starsContainer = document.getElementById("stars");
+
+// a loop to create and append the non-coloured stars to the page & create hover effects.
 
 for (let i = 0; i < 10; i++) {
   let starImg = document.createElement("img");
@@ -20,6 +20,8 @@ let active = -1;
 function onStarHover(i) {
   fill(i);
 }
+
+// function to fill the stars
 
 function fill(ratingValue) {
   for (let i = 0; i < 10; i++) {
@@ -40,6 +42,8 @@ function onStarClick(i) {
   // document.getElementById("display-star-value").innerHTML = i + 1;
   fill(active);
 }
+
+//  enter key event listener to reset input & stars rating
 
 input.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
