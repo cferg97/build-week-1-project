@@ -33,7 +33,6 @@ function setNextQ() {
 
 function resetState() {
   //reset state function
-
   nextBtn.classList.add("hidden"); //hide next button
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild); //remove all existing question buttons
@@ -109,12 +108,6 @@ function processResults(isCorrect) {
 // }
 
 // //timer stuff below here idfk
-function resetTimer() {
-  let timePassed = 0;
-  let timeLeft = TIME_LIMIT;
-  let timerInterval = null;
-  let remainingPathColor = COLOR_CODES.info.color;
-}
 
 function timer() {
   const FULL_DASH_ARRAY = 283;
@@ -165,7 +158,7 @@ function timer() {
   </div>
   `;
 
-   //start timer
+  startTimer() //start timer
 
   function startTimer() {
     timerInterval = setInterval(() => {
@@ -178,12 +171,12 @@ function timer() {
 
       if (timeLeft === 0) {
         onTimesUp();
-        setNextQ();
+        setNextQ()
       }
     }, 1000);
   }
 
-  startTimer();
+ ;
   function onTimesUp() {
     clearInterval(timerInterval);
   }
