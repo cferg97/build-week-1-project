@@ -1,12 +1,13 @@
-const questionContainer = document.getElementById("question")
-const answerButtonsElement = document.getElementById("answer-container")
-const questionCounterElement = document.getElementById("q-num")
-const nextBtn = document.getElementById("next-btn")
-let shuffledQuestions, currentQuestionIndex
-let correctAnswers = []
-let wrongAnswers = []
+const questionContainer = document.getElementById("question");
+const answerButtonsElement = document.getElementById("answer-container");
+const questionCounterElement = document.getElementById("q-num");
+const nextBtn = document.getElementById("next-btn");
+let shuffledQuestions, currentQuestionIndex;
+let correctAnswers = [];
+let wrongAnswers = [];
+let score = 0;
 
-
+const timeOut = setTimeout(timer(), 20000);
 
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
@@ -22,6 +23,7 @@ function start() {
 
 function setNextQ() {
   resetState();
+  clearTimeout(timeOut);
   timer();
   showQuestion(shuffledQuestions[currentQuestionIndex]);
   const counter = parseInt(questionCounterElement.textContent, 0);
@@ -50,20 +52,36 @@ function showQuestion(question) {
 }
 
 function selectAnswer(e) {
-  const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
-  if (shuffledQuestions.length > currentQuestionIndex + 1){
-      nextBtn.classList.remove("hidden")
-    }
-  else{
-    const timer = document.getElementById("app")
-    timer.classList.add("hidden")
-    nextBtn.classList.remove("hidden")
-    nextBtn.innerText = "See Results"
+  const selectedButton = e.target;
+  const correct = selectedButton.dataset.correct;
+  processResults(correct);
+  // console.log(correct)
+  // if (correct == true) {
+  //   return score = score + 1
+  // }
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextBtn.classList.remove("hidden");
+  } else {
+    const timer = document.getElementById("app");
+    timer.classList.add("hidden");
+    nextBtn.classList.remove("hidden");
+    nextBtn.innerText = "See Results";
     nextBtn.addEventListener("click", () => {
       window.location = "result.html";
     });
+    score = score.toString();
+    console.log(score);
+    localStorage.setItem("score", score);
   }
+}
+
+function processResults(isCorrect) {
+  if (!isCorrect) {
+    //if the answer is not correct, do nothing
+    return;
+  }
+  score++;
+  console.log(score);
 }
 
 // function setStatusClass(element, correct){
@@ -102,7 +120,7 @@ function timer() {
     },
   };
 
-  const TIME_LIMIT = 20;
+  const TIME_LIMIT = 30;
   let timePassed = 0;
   let timeLeft = TIME_LIMIT;
   let timerInterval = null;
