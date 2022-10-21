@@ -24,6 +24,7 @@ function start() {
 function setNextQ(){
   resetState()
   clearTimeout(timeOut)
+  timer()
   showQuestion(shuffledQuestions[currentQuestionIndex])
   const counter = parseInt(questionCounterElement.textContent, 0)
   questionCounterElement.textContent = counter + 1
@@ -69,10 +70,10 @@ function selectAnswer(e) {
     nextBtn.addEventListener("click", () => {
       window.location = "result.html";
     });
-  }
-  score = score.toString();
-  console.log(score);
-  localStorage.setItem("score", score);
+    score = score.toString();
+    console.log(score);
+    localStorage.setItem("score", score)
+  };
 }
 
 function processResults(isCorrect) {
@@ -80,7 +81,8 @@ function processResults(isCorrect) {
     //if the answer is not correct, do nothing
     return;
   }
-  score++;
+  score++
+  console.log(score);
 }
 
 // function setStatusClass(element, correct){
@@ -119,7 +121,7 @@ function timer() {
     },
   };
 
-  const TIME_LIMIT = 20;
+  const TIME_LIMIT = 30;
   let timePassed = 0;
   let timeLeft = TIME_LIMIT;
   let timerInterval = null;
