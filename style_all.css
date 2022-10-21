@@ -87,11 +87,16 @@ li {
   color: black;
   font-family: "Outfit", sans-serif;
   font-size: 20px;
-  box-shadow: 5px 5px 50px #00ffffc5;
+  
   font-weight: bold;
   outline: 0;
   border: none;
   cursor: pointer;
+}
+
+#proceed:hover{
+box-shadow: 5px 5px 50px #00ffffc5;
+  transform: scale(1.1);
 }
 
 #btn-container {
@@ -195,7 +200,7 @@ a {
   color: black;
   font-family: "Outfit", sans-serif;
   font-size: 25px;
-  box-shadow: 5px 5px 30px #00ffffc5;
+  /* box-shadow: 5px 5px 30px #00ffffc5; */
   font-weight: bold;
   outline: 0;
   border: none;
@@ -203,6 +208,11 @@ a {
   transition: box-shadow 0.3s;
   letter-spacing: 2px;
 }
+
+#next-btn:hover{
+  box-shadow: 5px 5px 50px #00ffffc5;
+    transform: scale(1.1);
+  }
 
 #other-col {
   color: #d20094;
