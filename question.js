@@ -7,13 +7,13 @@ let correctAnswers = [];
 let wrongAnswers = [];
 let score = 0;
 
-//declaring local variables above here
+//declaring global variables above here
 
 
 
 
 
-const timeOut = setTimeout(timer(), 20000);
+const timeOut = setTimeout(timer(), 20000); //trying to set timeout for timer, didnt work
 
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
@@ -33,51 +33,51 @@ function setNextQ() {
   timer(); //run timer function
   showQuestion(shuffledQuestions[currentQuestionIndex]); //show random question using showQuestion function
   const counter = parseInt(questionCounterElement.textContent, 0); //grab text from counter element
-  questionCounterElement.textContent = counter + 1; //incrememnt by one each time new q set
+  questionCounterElement.textContent = counter + 1; //incrememnt by one each time new question is set
 }
 
-function resetState() {
-  nextBtn.classList.add("hidden");
+function resetState() { //reset state function
+  nextBtn.classList.add("hidden"); //hide next button
   while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild); //remove all existing question buttons
   }
 }
 
-function showQuestion(question) {
-  questionContainer.innerText = question.question;
-  question.answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    button.classList.add("answer-btn");
-    if (answer.correct) {
-      button.dataset.correct = answer.correct;
+function showQuestion(question) { //show question function
+  questionContainer.innerText = question.question; //changes question text to current question
+  question.answers.forEach((answer) => { //for each answer in question
+    const button = document.createElement("button"); //create button
+    button.innerText = answer.text; //change each button text to each answer
+    button.classList.add("answer-btn"); //add button styling class
+    if (answer.correct) { //if answer is correct
+      button.dataset.correct = answer.correct; //set dataset
     }
-    button.addEventListener("click", selectAnswer);
-    answerButtonsElement.appendChild(button);
+    button.addEventListener("click", selectAnswer); //add event listener on click, runs function select answer
+    answerButtonsElement.appendChild(button); //appends buttons created to buttons container
   });
 }
 
-function selectAnswer(e) {
-  const selectedButton = e.target;
-  const correct = selectedButton.dataset.correct;
-  processResults(correct);
+function selectAnswer(e) { //select answer on event function
+  const selectedButton = e.target; //target = current selected button
+  const correct = selectedButton.dataset.correct;  //correct answer = current selected button's dataset
+  processResults(correct); //runs process results function when answer selected is correct
   // console.log(correct)
   // if (correct == true) {
   //   return score = score + 1
   // }
-  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+  if (shuffledQuestions.length > currentQuestionIndex + 1) { //if there is still questions left, continue
     nextBtn.classList.remove("hidden");
-  } else {
-    const timer = document.getElementById("app");
-    timer.classList.add("hidden");
-    nextBtn.classList.remove("hidden");
-    nextBtn.innerText = "See Results";
+  } else { //else (When there's no questions left)
+    const timer = document.getElementById("app"); 
+    timer.classList.add("hidden");//hide timer
+    nextBtn.classList.remove("hidden"); //remove hidden style of next button
+    nextBtn.innerText = "See Results"; //change text of next button to see results
     nextBtn.addEventListener("click", () => {
       window.location = "result.html";
-    });
-    score = score.toString();
-    console.log(score);
-    localStorage.setItem("score", score);
+    }); //add event listener on click, links to results page
+    score = score.toString(); //convert score to score
+    console.log(score); //show on console log just to check
+    localStorage.setItem("score", score); //save score to localStorage so can be accessed by result.js
   }
 }
 
@@ -86,7 +86,7 @@ function processResults(isCorrect) {
     //if the answer is not correct, do nothing
     return;
   }
-  score++;
+  score++; //increment score by one on correct questions
   console.log(score);
 }
 
@@ -156,7 +156,7 @@ function timer() {
   </div>
   `;
 
-  startTimer();
+  startTimer(); //start timer
 
   function startTimer() {
     timerInterval = setInterval(() => {
