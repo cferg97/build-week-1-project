@@ -1,6 +1,8 @@
 // Implementing all needed variables
-const correctAnswers = 6; //localStorage.getItem("score");
-const wrongAnswers = 4; // 10 - parseInt(correctAnswers);
+const answers = localStorage.getItem("score");
+console.log(answers);
+const correctAnswer = parseInt(answers);
+const wrongAnswer = 10 - parseInt(answers);
 const allQuestions = 10;
 const correctPercentage = document.getElementById("true_question");
 const wrongPercentage = document.getElementById("false_question");
@@ -13,8 +15,8 @@ let progressBar = document.querySelector(".container");
 
 // Function to calculate percentage of answers
 const resultCalculation = function () {
-  percForCorrect = (100 * correctAnswers) / allQuestions;
-  percForWrong = (100 * wrongAnswers) / allQuestions;
+  percForCorrect = (100 * correctAnswer) / allQuestions;
+  percForWrong = (100 * wrongAnswer) / allQuestions;
 
   // Make percentages precise
   const preciseCorrect = percForCorrect.toPrecision(3);
@@ -38,8 +40,8 @@ const resultCalculation = function () {
   correctPercentage.innerText = preciseCorrect + "%";
   wrongPercentage.innerText = preciseWrong + "%";
 
-  numberOfCorrect.innerText = correctAnswers + "/10 questions";
-  numberOfWrong.innerText = wrongAnswers + "/10 questions";
+  numberOfCorrect.innerText = correctAnswer + "/10 questions";
+  numberOfWrong.innerText = wrongAnswer + "/10 questions";
 
   if (parseInt(percForCorrect) >= 60) {
     textResult.innerHTML = `<div id="text_result">
@@ -63,5 +65,4 @@ const resultCalculation = function () {
 
 window.onload = function () {
   resultCalculation();
-  localStorage.clear();
 };
