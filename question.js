@@ -9,10 +9,6 @@ let score = 0;
 
 //declaring global variables above here
 
-
-
-
-
 const timeOut = setTimeout(timer(), 20000); //trying to set timeout for timer, didnt work
 
 nextBtn.addEventListener("click", () => {
@@ -25,7 +21,7 @@ function start() {
   shuffledQuestions = questions.sort(() => Math.random() - 0.5); //randomise questions
   currentQuestionIndex = 0; //set current index to 0
   setNextQ(); //set next question
-} 
+}
 
 function setNextQ() {
   resetState(); //run reset state function; //attempting to reset timer, doesn't work
@@ -35,21 +31,25 @@ function setNextQ() {
   questionCounterElement.textContent = counter + 1; //incrememnt by one each time new question is set
 }
 
-function resetState() { //reset state function
-  
+function resetState() {
+  //reset state function
+
   nextBtn.classList.add("hidden"); //hide next button
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild); //remove all existing question buttons
   }
 }
 
-function showQuestion(question) { //show question function
+function showQuestion(question) {
+  //show question function
   questionContainer.innerText = question.question; //changes question text to current question
-  question.answers.forEach((answer) => { //for each answer in question
+  question.answers.forEach((answer) => {
+    //for each answer in question
     const button = document.createElement("button"); //create button
     button.innerText = answer.text; //change each button text to each answer
     button.classList.add("answer-btn"); //add button styling class
-    if (answer.correct) { //if answer is correct
+    if (answer.correct) {
+      //if answer is correct
       button.dataset.correct = answer.correct; //set dataset
     }
     button.addEventListener("click", selectAnswer); //add event listener on click, runs function select answer
@@ -57,19 +57,22 @@ function showQuestion(question) { //show question function
   });
 }
 
-function selectAnswer(e) { //select answer on event function
+function selectAnswer(e) {
+  //select answer on event function
   const selectedButton = e.target; //target = current selected button
-  const correct = selectedButton.dataset.correct;  //correct answer = current selected button's dataset
+  const correct = selectedButton.dataset.correct; //correct answer = current selected button's dataset
   processResults(correct); //runs process results function when answer selected is correct
   // console.log(correct)
   // if (correct == true) {
   //   return score = score + 1
   // } //failed attempt at incrementing score
-  if (shuffledQuestions.length > currentQuestionIndex + 1) { //if there is still questions left, continue
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    //if there is still questions left, continue
     nextBtn.classList.remove("hidden");
-  } else { //else (When there's no questions left)
-    const timer = document.getElementById("app"); 
-    timer.classList.add("hidden");//hide timer
+  } else {
+    //else (When there's no questions left)
+    const timer = document.getElementById("app");
+    timer.classList.add("hidden"); //hide timer
     nextBtn.classList.remove("hidden"); //remove hidden style of next button
     nextBtn.innerText = "See Results"; //change text of next button to see results
     nextBtn.addEventListener("click", () => {
@@ -106,13 +109,12 @@ function processResults(isCorrect) {
 // }
 
 // //timer stuff below here idfk
-function resetTimer(){
+function resetTimer() {
   let timePassed = 0;
   let timeLeft = TIME_LIMIT;
   let timerInterval = null;
   let remainingPathColor = COLOR_CODES.info.color;
 }
-
 
 function timer() {
   const FULL_DASH_ARRAY = 283;
