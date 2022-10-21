@@ -2,32 +2,38 @@ const questionContainer = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-container");
 const questionCounterElement = document.getElementById("q-num");
 const nextBtn = document.getElementById("next-btn");
-let shuffledQuestions, currentQuestionIndex;
+let shuffledQuestions, currentQuestionIndex; //declare variables to be used for random questions but not yet assigned anything
 let correctAnswers = [];
 let wrongAnswers = [];
 let score = 0;
+
+//declaring local variables above here
+
+
+
+
 
 const timeOut = setTimeout(timer(), 20000);
 
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
   setNextQ();
-});
+}); //setting event listener for next button, increments question index by 1 and runs next question function
 
 function start() {
-  questionCounterElement.textContent = 0;
-  shuffledQuestions = questions.sort(() => Math.random() - 0.5);
-  currentQuestionIndex = 0;
-  setNextQ();
+  questionCounterElement.textContent = 0; //set question counter to zero on start
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5); //randomise questions
+  currentQuestionIndex = 0; //set current index to 0
+  setNextQ(); //set next question
 }
 
 function setNextQ() {
-  resetState();
-  clearTimeout(timeOut);
-  timer();
-  showQuestion(shuffledQuestions[currentQuestionIndex]);
-  const counter = parseInt(questionCounterElement.textContent, 0);
-  questionCounterElement.textContent = counter + 1;
+  resetState(); //run reset state function
+  clearTimeout(timeOut); //attempting to reset timer, doesn't work
+  timer(); //run timer function
+  showQuestion(shuffledQuestions[currentQuestionIndex]); //show random question using showQuestion function
+  const counter = parseInt(questionCounterElement.textContent, 0); //grab text from counter element
+  questionCounterElement.textContent = counter + 1; //incrememnt by one each time new q set
 }
 
 function resetState() {
