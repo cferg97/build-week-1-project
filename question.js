@@ -136,7 +136,7 @@ function timer() {
   const TIME_LIMIT = 30;
   let timePassed = 0;
   let timeLeft = TIME_LIMIT;
-  let timerInterval = null;
+  let timerInterval = ""
   let remainingPathColor = COLOR_CODES.info.color;
 
   document.getElementById("app").innerHTML = `
@@ -163,7 +163,7 @@ function timer() {
   </div>
   `;
 
-  startTimer(); //start timer
+   //start timer
 
   function startTimer() {
     timerInterval = setInterval(() => {
@@ -180,6 +180,8 @@ function timer() {
       }
     }, 1000);
   }
+
+  startTimer();
   function onTimesUp() {
     clearInterval(timerInterval);
   }
